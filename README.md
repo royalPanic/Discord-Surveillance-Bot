@@ -9,9 +9,23 @@ Once upon a time, I was watching [that Snowden movie](https://en.wikipedia.org/w
 
 I wondered if I could bring PRISM\XKeyscore's functionality into Discord, where a moderation team might be able to covertly monitior all the messages of a potentially problematic user in their server, regardless of where the message was sent, when the message was sent, and if it was deleted or not. The goal was to have all these messages collected in a channel exclusive to each wiretapped user.
 
+---
+
 ## How it Works:
 
 When you choose to wiretap a user, their unique user ID (herein referred to as UUID) is added to an array in the cog. The cog then scans *every* sent message, and checks to see if it originated from a user on its wiretap list. If the UUID of a list member is recognized, the cog plucks that message, along with where it was sent, and puts it in a channel created in a special "FISA Court" category. The channel name is the UUID of the tracked user.
+
+---
+
+## Commands:
+
+### `startwiretap {usermention}` also `wiretap {usermention}` and `swt {usermention}`:
+Opens the channel and begins logging messages for that user.
+
+### `closewiretap {usermention}` also `endwiretap {usermention}` and `ewt {usermention}`:
+Ends the wiretap on the given user, but doesn't delete the channel. If the wiretap is started again, it will not create a new channel, but will continue using the original if it still exists.
+
+---
 
 ## How to use it:
 The main deployment of this is intended to be a cog in an existing bot. This makes it *far* less conspicuous than if it was its own bot. If you really do want it to be an independent bot, then there are some steps you'll have to take.
@@ -29,6 +43,8 @@ The main deployment of this is intended to be a cog in an existing bot. This mak
 8. To invite your bot to your server, we're going to need to something else from the Developer Portal, your application's Client ID (found under General Information).
 9. You can then go to [this site](https://discordapi.com/permissions.html) and insert your Client ID. You're going to need to give this bot `Administrator` permissions in order to make sure it can see every channel in the server.
 10. Use the link the site generates to add the bot to any server you want, and you're ready to violate your users' right to privacy!
+
+---
 
 ## Python Dependencies (packages installed with pip):
 * discord (obviously)
