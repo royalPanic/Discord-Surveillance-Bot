@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Bot Specific Working Files
 config.json
+.vscode
