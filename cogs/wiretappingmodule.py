@@ -46,6 +46,7 @@ class wiretap(commands.Cog):
         global wiretapList
         if pinguser.id in wiretapList:
             wiretapList.remove(pinguser.id)
+            await ctx.send("That user's wiretap has been closed.")
         else:
             await ctx.send("That user is not wiretapped.")
 
