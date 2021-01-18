@@ -30,7 +30,6 @@ class wiretap(commands.Cog):
             category = await guild.create_category_channel("FISA Court")
             categoryid = get(guild.categories, name="FISA Court").id
 
-
         if userid in wiretapList:
             await ctx.send("This user is already wiretapped.")
         else:
@@ -38,7 +37,6 @@ class wiretap(commands.Cog):
             await ctx.send("FISA Warrant Approved, Wiretap Opened.")
             if get(guild.channels, name=str(userid)) is None:
                 await guild.create_text_channel(name=userid, category=category, overwrites=overwrites)
-
 
     @commands.command(name="closewiretap", aliases=["endwiretap","cwt","ewt"], hidden=True)
     @has_permissions(administrator=True)
