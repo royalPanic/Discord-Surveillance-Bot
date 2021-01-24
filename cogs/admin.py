@@ -27,8 +27,7 @@ class Admin(commands.Cog):
         try:
             self.bot.unload_extension(f'cogs.{cog}')
         except Exception as e:
-            e = discord.Embed(description=f'**`ERROR`** unloading {cog} {type(e).__name__} - {e}',
-                              colour=discord.Colour(0xFF0000))
+            e = discord.Embed(description=f'**`ERROR`** unloading {cog} {type(e).__name__} - {e}', colour=discord.Colour(0xFF0000))
             await ctx.send(embed=e)
         else:
             e = discord.Embed(description=f'**`SUCCESSFULLY`** unloaded {cog}', colour=discord.Colour(0x278d89))
@@ -42,8 +41,7 @@ class Admin(commands.Cog):
         try:
             self.bot.reload_extension(f'cogs.{cog}')
         except Exception as e:
-            e = discord.Embed(description=f'**`ERROR`** reloading {cog} {type(e).__name__} - {e}',
-                              colour=discord.Colour(0xFF0000))
+            e = discord.Embed(description=f'**`ERROR`** reloading {cog} {type(e).__name__} - {e}', colour=discord.Colour(0xFF0000))
             await ctx.send(embed=e)
         else:
             e = discord.Embed(description=f'**`SUCCESSFULLY`** reloaded {cog}', colour=discord.Colour(0x278d89))

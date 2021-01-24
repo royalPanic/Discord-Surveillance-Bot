@@ -52,11 +52,8 @@ class wiretap(commands.Cog):
     async def on_message(self, given_message):
         guild = given_message.guild
         if given_message.author.id in wiretapList:
-            #print("Message from wiretap flagged user.")
             if not isinstance(given_message.channel, discord.DMChannel):
-                #print("AND not a DM.")
                 if get(guild.channels, name=str(given_message.author.id)) is not None:
-                    #print("AND user has an existing wiretap channel.")
                     sendchannel = get(guild.channels, name=str(given_message.author.id))
                     await sendchannel.send(str(given_message.author.name)+" sent: "+'`'+str(given_message.content)+'`'+" in "+str(given_message.channel.name))
 
