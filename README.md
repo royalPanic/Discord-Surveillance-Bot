@@ -1,4 +1,4 @@
-# Wiretapping-Bot
+# Discord-Surveillance-Bot
 
 ## An experimental Discord bot that allows you to pay... special attention to users in your server.
 
@@ -11,24 +11,39 @@ I wondered if I could bring PRISM\XKeyscore's functionality into Discord, where 
 
 ---
 
-## How it Works:
+## Modules Included:
 
-When you choose to wiretap a user, their unique user ID (herein referred to as UUID) is added to an array in the cog. The cog then scans *every* sent message, and checks to see if it originated from a user on its wiretap list. If the UUID of a list member is recognized, the cog plucks that message, along with where it was sent, and puts it in a channel created in a special "FISA Court" category. The channel name is the UUID of the tracked user.
+* `wiretapping.py`
+* `serverscreener.py`
 
 ---
 
-## Commands:
+## `wiretapping.py`
 
-### `startwiretap {usermention}` also `wiretap {usermention}` and `swt {usermention}`:
+### **How it Works:**
+
+When you choose to wiretap a user, their unique user ID (herein referred to as UUID) is added to an array in the cog. The cog then scans *every* sent message, and checks to see if it originated from a user on its wiretap list. If the UUID of a list member is recognized, the cog plucks that message, along with where it was sent, and puts it in a channel created in a special "FISA Court" category. The channel name is the UUID of the tracked user.
+
+### **Commands:**
+
+#### **`startwiretap {usermention}` also `wiretap {usermention}` and `swt {usermention}`**:
 Opens the channel and begins logging messages for that user.
 
-### `closewiretap {usermention}` also `endwiretap {usermention}` and `ewt {usermention}`:
+#### **`closewiretap {usermention}` also `endwiretap {usermention}` and `ewt {usermention}`**:
 Ends the wiretap on the given user, but doesn't delete the channel. If the wiretap is started again, it will not create a new channel, but will continue using the original if it still exists.
 
 ---
 
-## How to use it:
-The main deployment of this is intended to be a cog in an existing bot. This makes it *far* less conspicuous than if it was its own bot. If you really do want it to be an independent bot, then there are some steps you'll have to take.
+## `serverscreener.py`
+
+### **How it Works:**
+
+This module is designed to be used in a bot on multiple servers you own. It will allow you to add users to a `.csv` file stored with the module. The module will alert the server when a user in the file joins the server. You can also specify a reason to be included as to their inclusion in the file.
+
+---
+
+## How to use the modules:
+The main deployment is intended to be cogs in an existing bot. This makes it *far* less conspicuous than if they were their own bot. If you really do want them to be an independent bot, then there are some steps you'll have to take.
 
 1. Create a new Discord application at the [Discord Developer Portal](https://discord.com/developers/applications).
 2. Make a bot user for the application. Name it whatever you want, give it a profile picture, go nuts. My own testing bot is literally called the National Security Agency.
