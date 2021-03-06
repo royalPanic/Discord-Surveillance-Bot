@@ -9,7 +9,7 @@ from discord.utils import get
 import discord.abc
 
 # Module Code
-class sidewinder(commands.cog):
+class sidewinder(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
