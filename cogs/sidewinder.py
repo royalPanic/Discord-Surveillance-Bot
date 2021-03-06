@@ -10,7 +10,7 @@ import discord.abc
 
 # Module Code
 class sidewinder(commands.cog):
-    def __init__(self, bot)
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command(name="sidewind", hidden=True)
