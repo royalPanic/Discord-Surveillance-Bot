@@ -20,7 +20,7 @@ class sidewinder(commands.Cog):
         usermessages = await channel.history().flatten()
         for x in usermessages:
             if x.author.id == targetid:
-                ctx.send(str(target)+" sent: "+x.content+" in "+channel+" on "+x.created_at)
+                ctx.send(str(target)+" sent: "+x.content+" in "+str(channel)+" on "+x.created_at)
 
 def setup(bot):
     bot.add_cog(sidewinder(bot))
