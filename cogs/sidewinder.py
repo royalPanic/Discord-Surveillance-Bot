@@ -16,10 +16,8 @@ class sidewinder(commands.Cog):
     @commands.command(name="sidewind", hidden=True)
     @has_permissions(administrator=True)
     async def sidewind(self, ctx, target: discord.User, channel: discord.TextChannel):
-        targetid = target.id
-        usermessages = await channel.history().flatten()
-        for x in usermessages:
-            if x.author.id == targetid:
+        async for message in channel.history():
+            if message.author == target:
                 await ctx.send(str(target)+" sent: "+x.content+" in "+str(channel)+" on "+x.created_at.strftime("%m/%d/%Y, %H:%M:%S"))
 
 def setup(bot):
