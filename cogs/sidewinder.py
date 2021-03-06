@@ -23,12 +23,5 @@ class sidewinder(commands.cog):
         for x in usermessages:
             ctx.send(str(target)+" sent: "+x+" in "+channel)
 
-
-
-
-# def check(message):
-#     return message.author.id == some_author_id
-#
-# messages = await channel.history(limit=100, check=check).flatten()
-#  Now you have 100 messages sent by a user
-#  You can now iterate through every message and check whatever you want
+def setup(bot):
+    bot.add_cog(sidewinder(bot))
