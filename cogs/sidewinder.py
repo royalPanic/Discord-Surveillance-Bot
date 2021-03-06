@@ -17,11 +17,10 @@ class sidewinder(commands.Cog):
     @has_permissions(administrator=True)
     async def sidewind(self, ctx, target: discord.User, channel: discord.TextChannel):
         targetid = target.id
-        def IDcheck(message):
-            return message.author.id == targetid
-        usermessages = await channel.history(check=IDcheck).flatten()
+        usermessages = await channel.history().flatten()
         for x in usermessages:
-            ctx.send(str(target)+" sent: "+x+" in "+channel)
+            if x.author.id == targetid:
+                ctx.send(str(target)+" sent: "+x+" in "+channel+" on "+x.created_at)
 
 def setup(bot):
     bot.add_cog(sidewinder(bot))
